@@ -104,13 +104,13 @@
     sudo: yes
     sudo_user: vagrant
   - name: Build sherlock
-    shell: "cd /vagrant/Plagcheck/hashing/sherlock && python setup install"
+    shell: "cd /vagrant/PlagCheck/hashing/sherlock && python setup install"
   - name: start message queue
-    command: "{{ py3env }}/bin/celery -A Plagcheck worker --concurrency=1 --loglevel=DEBUG --detach"
+    command: "{{ py3env }}/bin/celery -A PlagCheck worker --concurrency=1 --loglevel=DEBUG --detach"
     sudo: no
   - name: start aurora
     command: "{{ py3env }}/bin/python manage.py runserver 0.0.0.0:8001"
     sudo: no
   - name: start message queue monitor
     sudo: no
-    command: "{{ py3env }}/bin/celery -A Plagcheck flower --loglevel=DEBUG"
+    command: "{{ py3env }}/bin/celery -A PlagCheck flower --loglevel=DEBUG"
