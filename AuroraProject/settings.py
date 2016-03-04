@@ -144,6 +144,8 @@ INSTALLED_APPS = (
     'Faq',
     'djcelery',
     'PlagCheck',
+    'diskurs',
+    'django_markup',
 )
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
